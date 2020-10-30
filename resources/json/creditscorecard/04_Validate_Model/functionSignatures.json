@@ -1,0 +1,181 @@
+{
+  "_schemaVersion": "1.0.0",
+  "begin_model_validation":
+  {
+     "inputs":
+     [
+        {"name":"sc", "kind":"required", "type":["creditscorecard"]}
+     ],
+     "outputs":
+     [
+        {"name":"scores", "kind":"required", "type":[""]},
+        {"name":"defaultProbs", "kind":"required", "type":[""]},
+        {"name":"defaultIndicators", "kind":"required", "type":[""]}
+     ]     
+  },
+  "cumulative_accuracy_profile":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "receiver_operating_characteristic":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "kolmogorov_smirnov_statistic":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "mann_whitney_intervals":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "bayesian_error_rate":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "entropy_measures":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "kendalls_tau_somers_d":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "brier_score":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "binomial_test":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "hosmer_lemeshow_test":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "pietra_index":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "summary_scriptlet":
+  {
+     "inputs":
+     [
+        {"name":"MH", "kind":"required", "type":["mrm.data.validation.MetricsHandler"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]     
+  },
+  "normal_test":
+  {
+     "inputs":
+     [
+        {"name":"sc", "kind":"required", "type":["creditscorecard"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]      
+  },
+  "traffic_lights_test":
+  {
+     "inputs":
+     [
+        {"name":"sc", "kind":"required", "type":["creditscorecard"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]        
+  },
+  "prepare_inputs_for_time_tests":
+  {
+     "inputs":
+     [
+        {"name":"sc", "kind":"required", "type":["creditscorecard"]}
+     ],
+     "outputs":
+     [
+        {"name":"", "kind":"required", "type":[""]}
+     ]       
+  }               
+}

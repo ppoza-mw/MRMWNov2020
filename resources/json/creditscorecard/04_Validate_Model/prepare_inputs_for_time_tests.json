@@ -1,0 +1,82 @@
+[
+{"className":"HeadingNode","align":"left","level":3,"children":[
+{"className":"RichTextNode","text":"Read in data as table"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"load RetailCreditPanelData.mat"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"data = join(data,dataMacro);"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":""}]},
+{"className":"HeadingNode","align":"left","level":3,"children":[
+{"className":"RichTextNode","text":"Split data into training and test sets"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"nIDs = max(data.ID);"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"uniqueIDs = unique(data.ID);"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":""}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"rng('default'); % for reproducibility"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"c = cvpartition(nIDs,'HoldOut',0.4);"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":""}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"TrainIDInd = training(c);"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"TestIDInd = test(c);"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":""}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"TrainDataInd = ismember(data.ID,uniqueIDs(TrainIDInd));"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"TestDataInd = ismember(data.ID,uniqueIDs(TestIDInd));"}]},
+{"className":"HeadingNode","align":"left","level":3,"children":[
+{"className":"RichTextNode","text":"Fit model on training data"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"% If using 20a or prior"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"pdModel = fitglm(data(TrainDataInd,:),..."}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"   'Default ~ 1 + ScoreGroup + YOB + GDP + Market',..."}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"   'Distribution','binomial');"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"disp(pdModel)"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"% % fitLifetimePDModel is available in Risk toolbox starting in 20b"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"% pdModel = fitLifetimePDModel(data(TrainDataInd,:),\"logistic\",..."}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"%     'AgeVar','YOB',..."}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"%     'IDVar','ID',..."}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"%     'LoanVars','ScoreGroup',..."}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"%     'MacroVars',{'GDP','Market'},..."}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"%     'ResponseVar','Default');"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"% disp(pdModel)"}]},
+{"className":"HeadingNode","align":"left","level":3,"children":[
+{"className":"RichTextNode","text":"Predict PD"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"PD.test = predict(pdModel,data(TestDataInd,:));"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"PD.training = predict(pdModel,data(TrainDataInd,:)); "}]},
+{"className":"RichTextParagraphNode","align":"left","children":[
+{"className":"RichTextNode","text":"For the traffic light test, what we need is the column with the response variable (0-1 default flag), the grouping variable (year) and the predicted probabiliy at the row level (PD)."}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"trainData = data(TrainDataInd,{'ID', 'Default', 'Year'});"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"trainData.PD = PD.training;"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":""}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"testData = data(TestDataInd,{'ID', 'Default', 'Year'});"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"testData.PD = PD.test;"}]},
+{"className":"SectionBreak","children":[]},
+{"className":"LineNode","children":[]},
+{"className":"LineNode","children":[]}]
