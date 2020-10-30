@@ -1,0 +1,6 @@
+[
+{"className":"LiveAppLineNode","children":[
+{"className":"LiveAppIntegratedInlineNode","text":"","taskID":"","appIdentifier":"mrm.data.internal.dataui.UnivariateAnalysisFilterTask","appVariables":"","appVariablesUserMap":"{}","appState":"{\"WorkspaceDD\":\"select variable\",\"WorkspaceDDItems\":[\"select\"],\"WorkspaceDDItemsData\":[\"select variable\"],\"ExclData\":{}}","view":"1","autorun":"1","collapsed":"0","code":"","numOfCodeLines":0,"lineOffsetForUpdate":-1}]},
+{"className":"SectionBreak","children":[]},
+{"className":"LineNode","children":[]},
+{"className":"LineNode","children":[]}]

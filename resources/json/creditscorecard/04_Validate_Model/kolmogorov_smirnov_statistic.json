@@ -1,0 +1,28 @@
+[
+{"className":"HeadingNode","align":"left","level":3,"children":[
+{"className":"RichTextNode","text":"Kolmogorov-Smirnov statistic (KS)","bold":true}]},
+{"className":"RichTextParagraphNode","align":"left","children":[
+{"className":"RichTextNode","text":"The Kolmogorov-Smirnov (KS) plot, also known as the fish-eye graph, is a common statistic used to measure the predictive power of scorecards."}]},
+{"className":"RichTextParagraphNode","align":"left","children":[
+{"className":"RichTextNode","text":"The KS plot shows the distribution of defaulters and the distribution of non-defaulters on the same plot. For the distribution of defaulters, each score \"s\" is plotted versus the proportion of defaulters with score lesser than or equal to \"s\". For the distribution of non-defaulters, each score \"s\" is plotted versus the proportion of non-defaulters with score lesser than or equal to  \"s\" or \"False Alarm\". The statistic of interest is called the KS statistic and is the maximum difference between these two distributions. The score at which this maximum is attained is also of interest. The closer the KS statistic is to unity, the better the rating model."}]},
+{"className":"RichTextParagraphNode","align":"left","children":[
+{"className":"RichTextNode","text":"Training Data","underline":true}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"KSMetric.training = mrm.data.validation.pd.KSStatistic(defaultIndicators.training, scores.training);"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"KSMetric.training.visualize;"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"KSMetric.training.displayResult;"}]},
+{"className":"RichTextParagraphNode","align":"left","children":[
+{"className":"RichTextNode","text":"Test Data","underline":true}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"KSMetric.test = mrm.data.validation.pd.KSStatistic(defaultIndicators.test, scores.test);"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"KSMetric.test.visualize;"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"KSMetric.test.displayResult;"}]},
+{"className":"LineNode","children":[
+{"className":"PlainTextNode","text":"MH.append(KSMetric.test);"}]},
+{"className":"SectionBreak","children":[]},
+{"className":"LineNode","children":[]},
+{"className":"LineNode","children":[]}]
